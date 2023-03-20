@@ -1,0 +1,21 @@
+<div class="form-group">
+  <label class="form-label" [for]="inputId">{{ label }}</label>
+  <div class="input-group">
+    <input
+      type="text"
+      class="form-control"
+      [id]="inputId"
+      [placeholder]="placeholder"
+      [(ngModel)]="model"
+      [ngbTypeahead]="wrappedSearchFn"
+    />
+    <button
+      class="btn btn-outline-secondary"
+      type="button"
+      (click)="onClearFilter()"
+    >
+      &times;
+    </button>
+  </div>
+  <div class="form-text text-muted" *ngIf="hint">{{ hint }}</div>
+</div>

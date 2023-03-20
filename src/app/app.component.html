@@ -1,0 +1,114 @@
+<div style="text-align: center; margin-top: 5rem">
+  <h2>Typeahead/Autocomplete</h2>
+</div>
+
+<div class="custom-row">
+  <janus-typeahead
+    label="Search Pokemon (static)"
+    placeholder="Charizard"
+    [optionsList]="POKEMON"
+  >
+  </janus-typeahead>
+</div>
+
+<div class="custom-row">
+  <mat-form-field appearance="outline" style="width: 100%">
+    <mat-label>Search Pokemon (static)</mat-label>
+    <input
+      type="text"
+      placeholder="Charizard"
+      matInput
+      [formControl]="matStaticFilter"
+      [matAutocomplete]="matStaticAutocomplete"
+    />
+    <mat-autocomplete
+      autoActiveFirstOption
+      #matStaticAutocomplete="matAutocomplete"
+    >
+      <mat-option
+        *ngFor="let option of matSyncFilteredPokemon$ | async"
+        [value]="option"
+      >
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</div>
+
+<div class="custom-row">
+  <div class="form-group">
+    <label for="delay-range" class="form-label">Delay</label>
+    <input
+      type="range"
+      id="delay-range"
+      class="form-range"
+      [formControl]="delayFormControl"
+      [min]="minDelayHalfSec"
+      [max]="maxDelayHalfSec"
+    />
+  </div>
+</div>
+
+<div class="custom-row">
+  <janus-typeahead
+    label="Search Pokemon (async)"
+    placeholder="Charizard"
+    [optionsLookup]="lookupPokemon"
+    hint="Delayed by {{ delaySeconds }} seconds"
+  >
+  </janus-typeahead>
+</div>
+
+<div class="custom-row">
+  <mat-form-field appearance="outline" style="width: 100%">
+    <mat-label>Search Pokemon (async)</mat-label>
+    <input
+      type="text"
+      placeholder="Charizard"
+      matInput
+      [formControl]="matAsyncFilter"
+      [matAutocomplete]="matAsyncAutocomplete"
+    />
+    <mat-autocomplete
+      autoActiveFirstOption
+      #matAsyncAutocomplete="matAutocomplete"
+    >
+      <mat-option
+        *ngFor="let option of matAsyncFilteredPokemon$ | async"
+        [value]="option"
+      >
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-hint>Delayed by {{ delaySeconds }} seconds</mat-hint>
+  </mat-form-field>
+</div>
+
+<div style="text-align: center">
+  <h2>VisionX Cards</h2>
+</div>
+
+<div class="custom-row">
+  <janus-card
+    filename="tx4536_YYYYMMDD_0000_0000"
+    title="Needs additional review"
+  >
+  </janus-card>
+</div>
+
+<div class="custom-row">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-subtitle>tx4536_YYYYMMDD_0000_0000</mat-card-subtitle>
+      <mat-card-title>Needs additional review</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-chip-listbox>
+        <mat-chip>Needs categorization</mat-chip>
+      </mat-chip-listbox>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary">Review</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

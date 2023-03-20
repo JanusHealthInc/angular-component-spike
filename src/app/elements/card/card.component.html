@@ -1,0 +1,33 @@
+<a href="#" class="m-0" style="text-decoration: none">
+  {{ filename }}
+</a>
+
+<a
+  href="#"
+  class="m-0"
+  style="text-align: right; font-weight: 500; text-decoration: none"
+>
+  {{ title }}
+</a>
+
+<div ngbDropdown class="d-inline-block">
+  <button
+    type="button"
+    class="btn btn-outline-primary btn-sm"
+    id="dropdownBasic1"
+    ngbDropdownToggle
+  >
+    Apply Document Type
+  </button>
+  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+    <button ngbDropdownItem>Additional Information Requested</button>
+    <button ngbDropdownItem>Auth Approved</button>
+    <button ngbDropdownItem>Auth Correspondence</button>
+  </div>
+</div>
+
+<a href="#" style="text-align: right; text-decoration: none">0 pages</a>
+
+<div>
+  <janus-tag>Needs extraction review</janus-tag>
+</div>
